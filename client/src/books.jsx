@@ -35,13 +35,13 @@ export function CreateNewBook({onAddBook}) {
     return <div>
         <form onSubmit={handleSubmit}>
             <div>
-                <label>Author: <input value={author} onChange={e => setAuthor(e.target.value)}/></label>
+                <label>Author: <input data-testid="author" value={author} onChange={e => setAuthor(e.target.value)}/></label>
             </div>
             <div>
-                <label>Title: <input value={title} onChange={e => setTitle(e.target.value)}/></label>
+                <label>Title: <input data-testid="title" value={title} onChange={e => setTitle(e.target.value)}/></label>
             </div>
             <div>
-                <label>Year: <input value={year} onChange={e => setYear(e.target.value)}/></label>
+                <label>Year: <input data-testid="year" value={year} onChange={e => setYear(e.target.value)}/></label>
             </div>
             <button>Submit</button>
             <div>

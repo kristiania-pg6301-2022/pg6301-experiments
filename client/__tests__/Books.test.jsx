@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {act} from "react-dom/test-utils";
+import {act, Simulate} from "react-dom/test-utils";
 
 import {Books, CreateNewBook, ListBooks} from "../src/books";
 import {MemoryRouter} from "react-router";
@@ -29,6 +29,20 @@ describe("Books", () => {
         const container = await render(<ListBooks books={books}/>);
         expect(container.innerHTML).toMatchSnapshot();
     });
+
+    it("submits new book", async () => {
+        const onAddBook = jest.fn();
+        const container = await render(<MemoryRouter><CreateNewBook onAddBook={onAddBook}/></MemoryRouter>);
+
+        Simulate.change(container.querySelector("[data-testid=author]"), {target: {value:  "Test Persson" }});
+        Simulate.change(container.querySelector("[data-testid=title]"), {target: {value:  "Book title" }});
+        Simulate.change(container.querySelector("[data-testid=year]"), {target: {value:  "1999" }});
+        Simulate.submit(container.querySelector("form"), {});
+
+        expect(onAddBook).toBeCalledWith({
+            author: "Test Persson", title: "Book title", year: "1999"
+        });
+    })
 
 });
 

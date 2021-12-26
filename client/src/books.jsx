@@ -2,6 +2,7 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 import {Route, Routes} from "react-router-dom";
 import {useNavigate} from "react-router";
+import {useTitle} from "./useTitle";
 
 export function Books() {
     const [books, setBooks] = useState([]);
@@ -38,6 +39,7 @@ export function Books() {
 }
 
 export function CreateNewBook({onAddBook}) {
+    useTitle("Add Book");
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -68,6 +70,7 @@ export function CreateNewBook({onAddBook}) {
 }
 
 export function ListBooks({books}) {
+    useTitle("Books");
     return <div>
         <h1>{books.length} books</h1>
         {books.map(({author, id, title, year}) => <div key={id}>{author}: {title} ({year})</div>)}

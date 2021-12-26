@@ -20,7 +20,7 @@ export function Books() {
     </>;
 }
 
-function CreateNewBook({onAddBook}) {
+export function CreateNewBook({onAddBook}) {
     const navigate = useNavigate();
 
     function handleSubmit() {

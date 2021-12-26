@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books shows create book form 1`] = `
+"<div><form><div><label>Author: <input value=\\"\\"></label></div><div><label>Title: <input value=\\"\\"></label></div><div><label>Year: <input value=\\"\\"></label></div><button>Submit</button><div><pre>{
+  \\"year\\": \\"\\",
+  \\"title\\": \\"\\",
+  \\"author\\": \\"\\"
+}</pre></div></form></div>"
+`;

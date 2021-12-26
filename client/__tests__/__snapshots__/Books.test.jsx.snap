@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Books shows book list 1`] = `"<div><h1>2 books</h1><div>Johannes: React lectures (2021)</div><div>Johannes: Java lectures (2021)</div></div>"`;
+
 exports[`Books shows create book form 1`] = `
 "<div><form><div><label>Author: <input value=\\"\\"></label></div><div><label>Title: <input value=\\"\\"></label></div><div><label>Year: <input value=\\"\\"></label></div><button>Submit</button><div><pre>{
   \\"year\\": \\"\\",

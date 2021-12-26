@@ -51,10 +51,10 @@ export function CreateNewBook({onAddBook}) {
     </div>;
 }
 
-function ListBooks({books}) {
+export function ListBooks({books}) {
     return <div>
         <h1>{books.length} books</h1>
-        {books.map(book => <div>{book.author}: {book.title} ({book.year})</div>)}
+        {books.map(({author, id, title, year}) => <div key={id}>{author}: {title} ({year})</div>)}
     </div>;
 }
 

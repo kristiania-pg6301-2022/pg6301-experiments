@@ -1,10 +1,16 @@
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Route, Routes} from "react-router-dom";
 import {useNavigate} from "react-router";
 
 export function Books() {
     const [books, setBooks] = useState([]);
+
+    useEffect(async () => {
+        const res = await fetch("/api/books");
+        setBooks(await res.json());
+    })
+
 
     function handleAddBook(book) {
         books.push(book);

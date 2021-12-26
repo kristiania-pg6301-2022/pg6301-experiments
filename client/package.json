@@ -2,9 +2,8 @@
   "name": "client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel watch index.html",
     "test": "jest"
   },
   "keywords": [],
@@ -17,6 +16,7 @@
     "parcel": "^2.0.1"
   },
   "dependencies": {
+    "@parcel/transformer-react-refresh-wrap": "^2.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.2.1",

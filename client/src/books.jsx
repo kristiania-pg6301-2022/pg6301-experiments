@@ -63,9 +63,6 @@ export function CreateNewBook({onAddBook}) {
                 <label>Year: <input data-testid="year" value={year} onChange={e => setYear(e.target.value)}/></label>
             </div>
             <button>Submit</button>
-            <div>
-                <pre>{JSON.stringify({year, title, author}, undefined, "  ")}</pre>
-            </div>
         </form>
     </div>;
 }

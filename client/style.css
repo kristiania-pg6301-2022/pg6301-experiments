@@ -1,0 +1,45 @@
+body, body * {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+
+header {
+    display: flex;
+    padding: 0.5em;
+    justify-content: space-evenly;
+}
+
+nav {
+    padding: 0.5em;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
+}
+
+main {
+    flex: 1;
+    padding: 1em;
+}
+
+main div {
+    max-width: 40em;
+    min-height: 15em;
+    margin: auto;
+    padding: 1em;
+    background-color: white;
+    border-radius: 0.5em;
+}

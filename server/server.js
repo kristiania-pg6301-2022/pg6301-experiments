@@ -2,25 +2,11 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
+const booksApi = require("./booksApi");
+
 const app = express();
 app.use(bodyParser.json());
-
-const books = [
-    {
-        id: 1, author: "Johannes", title: "Some title", year: 2020
-    }
-];
-
-app.get("/api/books", (req, res) => {
-    res.json(books).end();
-})
-
-
-app.post("/api/books", async(req, res) => {
-    const {title, author, year} = req.body;
-    books.push({title, author, year, id: books.length});
-    res.status(200).end();
-})
+app.use("/api/books", booksApi);
 
 
 app.use(express.static(path.resolve(__dirname, "..", "client", "dist")));

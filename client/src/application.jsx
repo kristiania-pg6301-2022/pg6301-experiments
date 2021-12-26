@@ -1,4 +1,6 @@
 import * as React from "react";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {Books} from "./books";
 
 function ApplicationHeader() {
     return <header><h1>Kristiania Library</h1></header>;
@@ -7,9 +9,9 @@ function ApplicationHeader() {
 function ApplicationMenu() {
     return <nav>
         <ul>
-            <li>View books</li>
+            <li><Link to={"books"}>View books</Link></li>
             <li>View authors</li>
-            <li>Add book</li>
+            <li><Link to={"books/create"}>Add book</Link></li>
         </ul>
     </nav>;
 }
@@ -17,16 +19,22 @@ function ApplicationMenu() {
 function ApplicationMain() {
     return <main>
         <div>
-            Welcome
+            <Routes>
+                <Route path={"/"} element={<h1>Welcome</h1>}/>
+                <Route path={"books/*"} element={<Books/>}/>
+                <Route path={"*"} element={<h1>Not found</h1>}/>
+            </Routes>
         </div>
     </main>;
 }
 
 export function Application() {
-    return <main>
-        <ApplicationHeader />
-        <ApplicationMenu />
-        <ApplicationMain />
-    </main>
+    return <BrowserRouter>
+        <main>
+            <ApplicationHeader/>
+            <ApplicationMenu/>
+            <ApplicationMain/>
+        </main>
+    </BrowserRouter>
 }
 

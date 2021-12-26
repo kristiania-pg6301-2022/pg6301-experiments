@@ -12,8 +12,17 @@ export function Books() {
     })
 
 
-    function handleAddBook(book) {
-        books.push(book);
+    async function handleAddBook(book) {
+        const response = await fetch("/api/books", {
+            "method": "POST",
+            body: JSON.stringify(book),
+            headers: {
+                "content-type": "application/json"
+            }
+        });
+        console.log(response.status);
+
+        books.push({id: books.length, ...book});
         setBooks(books);
     }
 
@@ -29,8 +38,9 @@ export function Books() {
 export function CreateNewBook({onAddBook}) {
     const navigate = useNavigate();
 
-    function handleSubmit() {
-        onAddBook({author, title, year});
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await onAddBook({author, title, year});
         navigate("..");
     }
 
@@ -39,6 +49,7 @@ export function CreateNewBook({onAddBook}) {
     const [year, setYear] = useState("");
 
     return <div>
+        <h1>Add book to server</h1>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Author: <input data-testid="author" value={author} onChange={e => setAuthor(e.target.value)}/></label>

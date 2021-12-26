@@ -1,8 +1,9 @@
 const express = require("express");
 const path = require("path");
-
+const bodyParser = require("body-parser");
 
 const app = express();
+app.use(bodyParser.json());
 
 const books = [
     {
@@ -14,6 +15,11 @@ app.get("/api/books", (req, res) => {
     res.json(books).end();
 })
 
+
+app.post("/api/books", async(req, res) => {
+    books.push(req.body);
+    res.status(200).end();
+})
 
 
 app.use(express.static(path.resolve(__dirname, "..", "client", "dist")));

@@ -6,9 +6,13 @@ import {useNavigate} from "react-router";
 export function Books() {
     const [books, setBooks] = useState([]);
 
-    useEffect(async () => {
+    async function load() {
         const res = await fetch("/api/books");
         setBooks(await res.json());
+    }
+
+    useEffect(async () => {
+        load();
     })
 
 
@@ -21,9 +25,7 @@ export function Books() {
             }
         });
         console.log(response.status);
-
-        books.push({id: books.length, ...book});
-        setBooks(books);
+        await load();
     }
 
 

@@ -17,7 +17,8 @@ app.get("/api/books", (req, res) => {
 
 
 app.post("/api/books", async(req, res) => {
-    books.push(req.body);
+    const {title, author, year} = req.body;
+    books.push({title, author, year, id: books.length});
     res.status(200).end();
 })
 

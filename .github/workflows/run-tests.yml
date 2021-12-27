@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    timeout-minutes: 2
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,3 +28,5 @@ jobs:
         run: npm ci
         working-directory: ./server
       - run: npm test
+        env:
+          ATLAS_URL: ${{ secrets.ATLAS_URL }}

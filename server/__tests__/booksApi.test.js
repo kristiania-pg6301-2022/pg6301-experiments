@@ -6,16 +6,21 @@ const {MongoClient} = require("mongodb");
 
 const app = express();
 app.use(require("body-parser").json());
+let conn;
 
 describe("books api", () => {
     beforeAll(async () => {
         const client = new MongoClient(process.env.ATLAS_URL);
-        const conn = await client.connect();
+        conn = await client.connect();
         await conn.db("testLibrary")
             .collection("books")
             .deleteMany({});
         app.use(require("../booksApi")(conn.db("testLibrary")));
     });
+
+    afterAll(() => {
+        conn.close();
+    })
 
     it("can add a new book", async () => {
         await request(app)

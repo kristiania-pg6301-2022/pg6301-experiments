@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 const client = new MongoClient(process.env.ATLAS_URL);
 client.connect()
-    .then(conn => app.use("/api/books", booksApi(conn.db("library"))));
+    .then(conn => app.use("/api/books", booksApi(conn.db(process.env.MONGO_DB || "library"))));
 
 
 app.use(express.static(path.resolve(__dirname, "..", "client", "dist")));
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
     }
 })
 
-const server = app.listen(3000, () => {
+const server = app.listen(process.env.PORT ||  3000, () => {
     console.log("started at http://localhost:" + server.address().port)
 })
 

@@ -1,7 +1,15 @@
 {
   "scripts": {
-    "test": "npm run test:client && npm run test:server",
+    "start": "concurrently npm:start:client npm:start:server",
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm start",
+    "build": "npm run build:client",
+    "build:client": "cd client && npm run build",
+    "test": "npm run test:server && npm run test:client",
     "test:client": "cd client && npm test",
-    "test:server": "cd server && npm test"
+    "test:server": "cd server && npm test -- --detectOpenHandles"
+  },
+  "devDependencies": {
+    "concurrently": "^6.5.1"
   }
 }

@@ -7,7 +7,7 @@
     "build:client": "cd client && npm run build",
     "test": "npm run test:server && npm run test:client",
     "test:client": "cd client && npm test",
-    "test:server": "cd server && npm test -- --detectOpenHandles"
+    "test:server": "cd server && npm test"
   },
   "devDependencies": {
     "concurrently": "^6.5.1"

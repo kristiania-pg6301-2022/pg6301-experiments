@@ -34,10 +34,12 @@ describe("Books", () => {
         const onAddBook = jest.fn();
         const container = await render(<MemoryRouter><CreateNewBook onAddBook={onAddBook}/></MemoryRouter>);
 
-        Simulate.change(container.querySelector("[data-testid=author]"), {target: {value:  "Test Persson" }});
-        Simulate.change(container.querySelector("[data-testid=title]"), {target: {value:  "Book title" }});
-        Simulate.change(container.querySelector("[data-testid=year]"), {target: {value:  "1999" }});
-        Simulate.submit(container.querySelector("form"), {});
+        await act(async () => {
+            await Simulate.change(container.querySelector("[data-testid=author]"), {target: {value:  "Test Persson" }});
+            await Simulate.change(container.querySelector("[data-testid=title]"), {target: {value:  "Book title" }});
+            await Simulate.change(container.querySelector("[data-testid=year]"), {target: {value:  "1999" }});
+            await Simulate.submit(container.querySelector("form"), {});
+        });
 
         expect(onAddBook).toBeCalledWith({
             author: "Test Persson", title: "Book title", year: "1999"

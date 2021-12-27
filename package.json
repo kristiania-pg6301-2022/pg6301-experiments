@@ -7,7 +7,10 @@
     "build:client": "cd client && npm run build",
     "test": "npm run test:server && npm run test:client",
     "test:client": "cd client && npm test",
-    "test:server": "cd server && npm test"
+    "test:server": "cd server && npm test",
+    "heroku-postbuild": "npm run heroku-postbuild:client && npm run heroku-postbuild:server",
+    "heroku-postbuild:client": "cd client && npm install && npm run build",
+    "heroku-postbuild:server": "cd server && npm install"
   },
   "devDependencies": {
     "concurrently": "^6.5.1"

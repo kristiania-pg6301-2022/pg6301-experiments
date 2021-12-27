@@ -30,3 +30,8 @@ jobs:
       - run: npm test
         env:
           ATLAS_URL: ${{ secrets.ATLAS_URL }}
+      - uses: tanmen/jest-reporter@v1
+        if: always()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-file: ./client/jest-report.json

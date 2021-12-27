@@ -4,10 +4,10 @@
     "start:client": "cd client && npm start",
     "start:server": "cd server && npm start",
     "build": "npm run build:client",
-    "build:client": "cd client && npm run build",
+    "build:client": "cd client && npm install && npm run build",
     "test": "npm run test:server && npm run test:client",
-    "test:client": "cd client && npm test",
-    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test -- --json --outputFile=jest-report.json --testLocationInResults",
+    "test:server": "cd server && npm test -- --json --outputFile=jest-report.json --testLocationInResults",
     "heroku-postbuild": "npm run heroku-postbuild:client && npm run heroku-postbuild:server",
     "heroku-postbuild:client": "cd client && npm install && npm run build",
     "heroku-postbuild:server": "cd server && npm install"

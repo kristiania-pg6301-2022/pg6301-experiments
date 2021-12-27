@@ -10,10 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./client
-
     strategy:
       matrix:
         node-version: [15.x, 16.x]
@@ -24,6 +20,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
+      - name: Install dependencies (client)
         run: npm ci
+        working-directory: ./client
+      - name: Install dependencies (client)
+        run: npm ci
+        working-directory: ./server
       - run: npm test

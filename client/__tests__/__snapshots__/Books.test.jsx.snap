@@ -2,10 +2,4 @@
 
 exports[`Books shows book list 1`] = `"<div><h1>2 books</h1><div>Johannes: React lectures (2021)</div><div>Johannes: Java lectures (2021)</div></div>"`;
 
-exports[`Books shows create book form 1`] = `
-"<div><form><div><label>Author: <input data-testid=\\"author\\" value=\\"\\"></label></div><div><label>Title: <input data-testid=\\"title\\" value=\\"\\"></label></div><div><label>Year: <input data-testid=\\"year\\" value=\\"\\"></label></div><button>Submit</button><div><pre>{
-  \\"year\\": \\"\\",
-  \\"title\\": \\"\\",
-  \\"author\\": \\"\\"
-}</pre></div></form></div>"
-`;
+exports[`Books shows create book form 1`] = `"<div><h1>Add book to server</h1><form><div><label>Author: <input data-testid=\\"author\\" value=\\"\\"></label></div><div><label>Title: <input data-testid=\\"title\\" value=\\"\\"></label></div><div><label>Year: <input data-testid=\\"year\\" value=\\"\\"></label></div><button>Submit</button></form></div>"`;

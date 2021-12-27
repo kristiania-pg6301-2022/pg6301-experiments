@@ -1,17 +1,11 @@
 const express = require("express");
-const { MongoClient } = require("mongodb");
-const { ATLAS_URL } = process.env;
-const client = new MongoClient(ATLAS_URL, {
-    useNewUrlParser: true, useUnifiedTopology: true
-});
 
-const router = express.Router();
-
-client.connect().then(conn => {
-    const db = conn.db("library");
+function booksApi(db) {
+    const router = express.Router();
+    const collection = db.collection("books");
 
     router.get("", (req, res) => {
-        db.collection("books")
+        collection
             .find({})
             .map(({_id, title, author, year}) => ({id: _id, title, author, year}))
             .toArray()
@@ -21,18 +15,14 @@ client.connect().then(conn => {
     router.post("", async(req, res) => {
         const {title, author, year} = req.body;
 
-        await db.collection("books").insertOne({
+        await collection.insertOne({
             title, author, year
         });
 
         res.status(200).end();
-    })
+    });
 
-})
+    return router;
+}
 
-
-
-
-
-
-module.exports = router;
+module.exports = booksApi;

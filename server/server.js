@@ -5,10 +5,14 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const booksApi = require("./booksApi");
+const {MongoClient} = require("mongodb");
 
 const app = express();
 app.use(bodyParser.json());
-app.use("/api/books", booksApi);
+
+const client = new MongoClient(process.env.ATLAS_URL);
+client.connect()
+    .then(conn => app.use("/api/books", booksApi(conn.db("library"))));
 
 
 app.use(express.static(path.resolve(__dirname, "..", "client", "dist")));

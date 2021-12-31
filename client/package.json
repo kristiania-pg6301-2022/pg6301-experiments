@@ -28,6 +28,11 @@
     "react-router-dom": "^6.2.1"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "*.jsx",
+      "src/**/*.js",
+      "src/**/*.jsx"
+    ],
     "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"

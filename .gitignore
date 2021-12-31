@@ -3,3 +3,4 @@ node_modules/
 client/dist/
 .parcel-cache/
 /server/.env
+coverage/

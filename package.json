@@ -1,14 +1,15 @@
 {
   "scripts": {
     "dev": "concurrently npm:start:client npm:start:server",
+    "dev:server": "cd server && npm dev",
     "start": "npm run start:server",
     "start:client": "cd client && npm start",
     "start:server": "cd server && npm start",
     "build": "npm run build:client",
     "build:client": "cd client && npm install && npm run build",
     "test": "npm run test:server && npm run test:client",
-    "test:client": "cd client && npm test -- --json --outputFile=jest-report.json --testLocationInResults",
-    "test:server": "cd server && npm test -- --json --outputFile=jest-report.json --testLocationInResults",
+    "test:client": "cd client && npm test -- --json --outputFile=jest-report.json --collectCoverage --testLocationInResults",
+    "test:server": "cd server && npm test -- --json --outputFile=jest-report.json --collectCoverage --testLocationInResults",
     "heroku-postbuild": "npm run heroku-postbuild:client && npm run heroku-postbuild:server",
     "heroku-postbuild:client": "cd client && npm install --dev && ls && ls node_modules/.bin && ./node_modules/.bin/parcel build index.html",
     "heroku-postbuild:server": "cd server && npm ci"

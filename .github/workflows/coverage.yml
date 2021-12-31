@@ -1,0 +1,24 @@
+name: 'coverage'
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Client
+        uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
+        with:
+          working-directory: client
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          #   threshold: 80 # optional parameter
+      - name: Server
+        uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
+        with:
+          working-directory: server
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          #   threshold: 80 # optional parameter

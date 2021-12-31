@@ -12,6 +12,10 @@
     "heroku-postbuild:client": "cd client && npm install && npm run build",
     "heroku-postbuild:server": "cd server && npm install"
   },
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.2"
+  },
   "devDependencies": {
     "concurrently": "^6.5.1"
   }

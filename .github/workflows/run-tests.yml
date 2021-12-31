@@ -32,3 +32,8 @@ jobs:
           ATLAS_URL: ${{ secrets.ATLAS_URL }}
       - name: Test heroku
         run: npm run heroku-postbuild
+      - uses: tanmen/jest-reporter@v1
+        if: always()
+        with:
+          result-file: ./client/jest-report.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}

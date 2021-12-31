@@ -7,6 +7,10 @@
     "start": "nodemon server.js",
     "test": "jest"
   },
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

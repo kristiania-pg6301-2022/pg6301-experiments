@@ -10,15 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Install dependencies (client)
+        run: npm ci
+        working-directory: ./client
       - name: Client
         uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
         with:
-          working-directory: client
+          working-directory: ./client
           github-token: ${{ secrets.GITHUB_TOKEN }}
           #   threshold: 80 # optional parameter
+      - name: Install dependencies (server)
+        run: npm ci
+        working-directory: ./server
       - name: Server
         uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
         with:
-          working-directory: server
+          working-directory: ./server
           github-token: ${{ secrets.GITHUB_TOKEN }}
           #   threshold: 80 # optional parameter

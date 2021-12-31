@@ -14,7 +14,7 @@ export function Books() {
 
     useEffect(async () => {
         load();
-    })
+    }, [])
 
 
     async function handleAddBook(book) {

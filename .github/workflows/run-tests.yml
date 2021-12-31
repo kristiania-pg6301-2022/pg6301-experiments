@@ -30,14 +30,3 @@ jobs:
       - run: npm test
         env:
           ATLAS_URL: ${{ secrets.ATLAS_URL }}
-      - uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          lcov-file: ./client/coverage/lcov.info
-      - uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          lcov-file: ./server/coverage/lcov.info
-      - uses: tanmen/jest-reporter@v1
-        if: always()
-        with:
-          result-file: ./client/jest-report.json
-          github-token: ${{ secrets.GITHUB_TOKEN }}

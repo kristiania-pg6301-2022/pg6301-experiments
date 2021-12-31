@@ -31,4 +31,4 @@ jobs:
         env:
           ATLAS_URL: ${{ secrets.ATLAS_URL }}
       - name: Test heroku
-        run: npm heroku-postbuild
+        run: npm run heroku-postbuild

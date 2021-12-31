@@ -30,8 +30,14 @@ jobs:
       - run: npm test
         env:
           ATLAS_URL: ${{ secrets.ATLAS_URL }}
-      - name: Test heroku
-        run: npm run heroku-postbuild
+      - name: Coverage (client)
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          lcov-file: ./client/coverage/lcov.info
+      - name: Coverage (server)
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          lcov-file: ./server/coverage/lcov.info
       - uses: tanmen/jest-reporter@v1
         if: always()
         with:

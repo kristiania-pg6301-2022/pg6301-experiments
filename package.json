@@ -9,8 +9,8 @@
     "test:client": "cd client && npm test -- --json --outputFile=jest-report.json --testLocationInResults",
     "test:server": "cd server && npm test -- --json --outputFile=jest-report.json --testLocationInResults",
     "heroku-postbuild": "npm run heroku-postbuild:client && npm run heroku-postbuild:server",
-    "heroku-postbuild:client": "cd client && npm install && npm run build",
-    "heroku-postbuild:server": "cd server && npm install"
+    "heroku-postbuild:client": "cd client && npm ci && ./node_modules/.bin/parcel build index.html",
+    "heroku-postbuild:server": "cd server && npm ci"
   },
   "engines": {
     "node": "16.13.0",

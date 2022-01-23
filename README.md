@@ -1,1 +1,2 @@
 [![Run tests](https://github.com/kristiania-pg6301-2022/pg6301-experiments/actions/workflows/test.yml/badge.svg)](https://github.com/kristiania-pg6301-2022/pg6301-experiments/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/kristiania-pg6301-2022/pg6301-experiments/badge.svg?branch=github-actions)](https://coveralls.io/github/kristiania-pg6301-2022/pg6301-experiments?branch=github-actions)

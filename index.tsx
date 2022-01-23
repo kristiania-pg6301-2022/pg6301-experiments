@@ -3,4 +3,4 @@ import * as ReactDOM from "react-dom";
 
 import {Application} from "./application";
 
-ReactDOM.render(<Application someone={"World"} />, document.getElementById("app"));
+ReactDOM.render(<Application greeting={"Hi"} someone={"World"} />, document.getElementById("app"));

@@ -1,6 +1,5 @@
 /.idea/
 node_modules/
-client/dist/
+dist/
 .parcel-cache/
-/server/.env
 coverage/

@@ -1,0 +1,32 @@
+{
+  "name": "pg6301-experiments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiania-pg6301-2022/pg6301-experiments.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristiania-pg6301-2022/pg6301-experiments/issues"
+  },
+  "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-experiments#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.4.7",
+    "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1"
+  }
+}

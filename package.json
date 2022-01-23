@@ -22,6 +22,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.0",
     "babel-jest": "^27.4.6",
     "jest": "^27.4.7",
     "parcel": "^2.2.1"
@@ -34,13 +36,14 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-react",
+      "@babel/preset-typescript"
     ]
   },
   "jest": {
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "*.{js,jsx}"
+      "*.{js,jsx,ts,tsx}"
     ]
   }
 }
